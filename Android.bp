@@ -1,11 +1,46 @@
-//kernel_headers {
-//    name: "qti_kernel_headers",
-//    vendor_available: true,
-//    recovery_available: true,
-//}
+// Prebuilt kernel headers for sapphire.
+//
+// hardware/qcom-caf/common (qti_kernel_headers, qti_display_kernel_headers,
+// qti_audio_kernel_uapi, qti_ipa_kernel_headers, smmu_proxy_uapi_header,
+// audio_kernel_headers), hardware/xiaomi/fingerprint, hardware/qcom-caf/
+// common/nqnfcinfo and the sapphire udfps/gpt-utils modules all build against
+// "generated_kernel_headers" / "generated_kernel_header_defaults".
+//
+// On LineageOS both come from a Soong plugin in vendor/lineage that wires them
+// to the headers emitted by the inline kernel build.  StatiX ships no such
+// plugin, and sapphire uses a fully prebuilt kernel
+// (TARGET_FORCE_PREBUILT_KERNEL := true, TARGET_KERNEL_SOURCE points here), so
+// nothing is generated -- the uapi headers ship with the prebuilt.
+//
+// The defaults deliberately go through header_libs rather than carrying
+// export_include_dirs itself: paths in a cc_defaults resolve relative to the
+// module that *applies* the defaults, so an export_include_dirs here would be
+// looked up under hardware/qcom-caf/common/ and fail.
+cc_library_headers {
+    name: "generated_kernel_headers",
+    export_include_dirs: ["kernel-headers"],
+    vendor_available: true,
+    recovery_available: true,
+}
 
-//kernel_headers {
-//    name: "qti_display_kernel_headers",
-//    vendor_available: true,
-//    recovery_available: true,
-//}
+cc_defaults {
+    name: "generated_kernel_header_defaults",
+    header_libs: ["generated_kernel_headers"],
+    export_header_lib_headers: ["generated_kernel_headers"],
+    vendor_available: true,
+    recovery_available: true,
+}
+
+// NOTE: the checked-in kernel-headers/{asm,asm-generic}/signal.h have been run
+// through bionic/libc/kernel/tools/clean_header.py, which strips their
+// "struct sigaction" definition.  Exporting the raw uapi headers puts them on
+// the include path ahead of the sanitised bionic copies under
+// bionic/libc/kernel/uapi, and anything reaching <signal.h> then fails with
+// "redefinition of sigaction".  LineageOS applies the same fix from
+// vendor/lineage/tools/clean_headers.sh to its generated headers; with a
+// prebuilt kernel there is nothing to generate, so it is baked in here.
+//
+// Re-run it after refreshing the prebuilt kernel:
+//   ANDROID_BUILD_TOP=$PWD ./bionic/libc/kernel/tools/clean_header.py -u \
+//       $PWD/device/xiaomi/sapphire-kernel/kernel-headers/asm/signal.h \
+//       $PWD/device/xiaomi/sapphire-kernel/kernel-headers/asm-generic/signal.h
