@@ -9,7 +9,7 @@
 /vendor/lib/modules/smp2p_sleepstate.ko:
 /vendor/lib/modules/debugcc-khaje.ko:
 /vendor/lib/modules/eud.ko:
-/vendor/lib/modules/qcom_spss.ko: /vendor/lib/modules/mdt_loader.ko /vendor/lib/modules/qcom_sysmon.ko
+/vendor/lib/modules/qcom_spss.ko: /vendor/lib/modules/mdt_loader.ko /vendor/lib/modules/qcom_sysmon.ko /vendor/lib/modules/qcom_aoss.ko
 /vendor/lib/modules/stm_p_basic.ko: /vendor/lib/modules/stm_core.ko
 /vendor/lib/modules/auth_battery.ko: /vendor/lib/modules/battery_auth_class.ko
 /vendor/lib/modules/qcom-dload-mode.ko:
@@ -50,7 +50,7 @@
 /vendor/lib/modules/msm_sysstats.ko:
 /vendor/lib/modules/stm_p_ost.ko: /vendor/lib/modules/stm_core.ko
 /vendor/lib/modules/msm_video.ko: /vendor/lib/modules/msm-mmrm.ko /vendor/lib/modules/mdt_loader.ko
-/vendor/lib/modules/qcom_q6v5_pas.ko: /vendor/lib/modules/qcom_ramdump.ko /vendor/lib/modules/qcom_pil_info.ko /vendor/lib/modules/qcom_q6v5.ko /vendor/lib/modules/qcom_aoss.ko /vendor/lib/modules/mdt_loader.ko /vendor/lib/modules/qcom_sysmon.ko
+/vendor/lib/modules/qcom_q6v5_pas.ko: /vendor/lib/modules/qcom_ramdump.ko /vendor/lib/modules/qcom_pil_info.ko /vendor/lib/modules/qcom_q6v5.ko /vendor/lib/modules/mdt_loader.ko /vendor/lib/modules/qcom_sysmon.ko /vendor/lib/modules/qcom_aoss.ko
 /vendor/lib/modules/cnss_prealloc.ko:
 /vendor/lib/modules/cp_qc30.ko: /vendor/lib/modules/qcom-pmic-voter.ko
 /vendor/lib/modules/spi-msm-geni.ko:
@@ -60,7 +60,7 @@
 /vendor/lib/modules/coresight-csr.ko: /vendor/lib/modules/coresight.ko
 /vendor/lib/modules/qti_qmi_cdev.ko:
 /vendor/lib/modules/altmode-glink.ko: /vendor/lib/modules/pmic_glink.ko
-/vendor/lib/modules/coresight-tmc.ko: /vendor/lib/modules/usb_f_qdss.ko /vendor/lib/modules/usb_bam.ko /vendor/lib/modules/coresight-csr.ko /vendor/lib/modules/dwc3-msm.ko /vendor/lib/modules/coresight.ko /vendor/lib/modules/sps_drv.ko
+/vendor/lib/modules/coresight-tmc.ko: /vendor/lib/modules/usb_f_qdss.ko /vendor/lib/modules/usb_bam.ko /vendor/lib/modules/coresight-csr.ko /vendor/lib/modules/ipa_fmwk.ko /vendor/lib/modules/dwc3-msm.ko /vendor/lib/modules/coresight.ko /vendor/lib/modules/sps_drv.ko
 /vendor/lib/modules/rq_stats.ko:
 /vendor/lib/modules/msm_geni_serial.ko:
 /vendor/lib/modules/phy-msm-ssusb-qmp.ko:
@@ -114,7 +114,7 @@
 /vendor/lib/modules/coresight-tpda.ko: /vendor/lib/modules/coresight.ko
 /vendor/lib/modules/fsa4480-i2c.ko: /vendor/lib/modules/ucsi_glink.ko /vendor/lib/modules/pmic_glink.ko
 /vendor/lib/modules/ipa_fmwk.ko:
-/vendor/lib/modules/i2c-msm-geni.ko:
+/vendor/lib/modules/i2c-msm-geni.ko: /vendor/lib/modules/msm_gpi.ko
 /vendor/lib/modules/qrng_dlkm.ko:
 /vendor/lib/modules/sg.ko:
 /vendor/lib/modules/q6_dlkm.ko:
@@ -142,7 +142,7 @@
 /vendor/lib/modules/smcinvoke_dlkm.ko: /vendor/lib/modules/qseecom_dlkm.ko
 /vendor/lib/modules/spidev.ko:
 /vendor/lib/modules/stick_verify.ko: /vendor/lib/modules/battery_auth_class.ko
-/vendor/lib/modules/qca_cld3_wlan.ko: /vendor/lib/modules/icnss2.ko /vendor/lib/modules/wlan_firmware_service.ko /vendor/lib/modules/cnss_prealloc.ko /vendor/lib/modules/cnss_nl.ko /vendor/lib/modules/cnss_utils.ko /vendor/lib/modules/cfg80211.ko /vendor/lib/modules/qcom_ramdump.ko
+/vendor/lib/modules/qca_cld3_wlan.ko: /vendor/lib/modules/icnss2.ko /vendor/lib/modules/wlan_firmware_service.ko /vendor/lib/modules/cnss_prealloc.ko /vendor/lib/modules/cnss_nl.ko /vendor/lib/modules/cfg80211.ko /vendor/lib/modules/qcom_ramdump.ko
 /vendor/lib/modules/bq25960_charger.ko:
 /vendor/lib/modules/qti_battery_debug.ko: /vendor/lib/modules/pmic_glink.ko
 /vendor/lib/modules/wsa881x_analog_dlkm.ko: /vendor/lib/modules/wcd_core_dlkm.ko
